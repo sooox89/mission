@@ -1,12 +1,3 @@
-#ex. 6-1
-
-for k in[3,2,1,0]:
-    print(k)
-
-
-#ex. 5-1
-# m으로 시작하는 대문자로 만들어보자
-
 
 #ex. 5-4
 letter = '''    Dear {salutation} {name},\n
@@ -75,5 +66,27 @@ job_title = 'manager'))
 
 #ex 5-6.
 
+boat = 'Duck'
+horse = 'Gourd'
+train  = 'Spitz'
+print('%sy Mc%sface' % (boat,boat))
+print('%sy Mc%sface' % (horse,horse))
+print('%sy Mc%sface' % (train,train))
 
+#nameE ='Boaty McBoatface'
+#print(nameE.replace('Boat','Duck'))
 
+#ex 5-7.
+print('{}y Mc{}face'. format(boat,boat))
+print('{}y Mc{}face'. format(horse,horse))
+print('{}y Mc{}face'. format(train,train))
+
+#ex 5-8.
+print(f'{boat}y Mc{boat}face')
+print(f'{horse}y Mc{horse}face')
+print(f'{train}y Mc{train}face')
+
+#ex. 6-1
+
+for k in[3,2,1,0]:
+    print(k)
