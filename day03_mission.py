@@ -90,3 +90,25 @@ print(f'{train}y Mc{train}face')
 
 for k in[3,2,1,0]:
     print(k)
+#ex. 6-2
+guess_me = 7
+number = 1
+while guess_me > number :
+    print('too low')
+    number = number + 1
+    if guess_me == number :
+        print('found it!')
+        break
+else :
+    print('oops')
+
+
+#ex. 6-3
+guess_me = 5
+for number in range(10):
+    if guess_me > number:
+        print('too low')
+    elif guess_me == number:
+        print('found it!')
+    else:
+        print('oops')
