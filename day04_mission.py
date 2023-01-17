@@ -15,4 +15,7 @@ print(things)
 # ex 7-5. 리스트 컴프리헨션 [x.capitalize() for x in original_list]
 things = [things.capitalize() for things in things]
 print(things)
+# ex 7-6.
+things = [things.upper() for things in things]
+print(things)
 
