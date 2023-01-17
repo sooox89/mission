@@ -8,7 +8,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfcd5a65-9ec5-4dad-b63d-a72c83fc6d6d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day03_mission.py" beforeDir="false" afterPath="$PROJECT_DIR$/day03_mission.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
