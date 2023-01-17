@@ -12,4 +12,7 @@ print(years_list[-1])
 # ex 7-4.
 things = ["mozzarella","cinderella", "salmonella"]
 print(things)
+# ex 7-5. 리스트 컴프리헨션 [x.capitalize() for x in original_list]
+things = [things.capitalize() for things in things]
+print(things)
 
