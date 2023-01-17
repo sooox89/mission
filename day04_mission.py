@@ -2,6 +2,8 @@
 # ex 7-1.
 import random
 birth = random.randint(1980,2011)   ##임의로 출생년도 1980~2010만 ..
-year_lists = [ birth for birth in range(birth,birth+6)]
-print(year_lists)
+years_list = [ birth for birth in range(birth,birth+6)]
+print(years_list)
 
+# ex 7-2.
+print(years_list[2])
