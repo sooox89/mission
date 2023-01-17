@@ -9,3 +9,7 @@ print(years_list)
 print(years_list[2])
 # ex 7-3.
 print(years_list[-1])
+# ex 7-4.
+things = ["mozzarella","cinderella", "salmonella"]
+print(things)
+
