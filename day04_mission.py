@@ -13,9 +13,15 @@ print(years_list[-1])
 things = ["mozzarella","cinderella", "salmonella"]
 print(things)
 # ex 7-5. 리스트 컴프리헨션 [x.capitalize() for x in original_list]
-things = [things.capitalize() for things in things]
+#things = [things.capitalize() for things in things]
+things[-2] = things[-2].title()
 print(things)
 # ex 7-6.
-things = [things.upper() for things in things]
+#things = [things.upper() for things in things]
+things = ["mozzarella","cinderella", "salmonella"]
+things[0]=things[0].upper()
 print(things)
-
+# ex 7-7
+things = ["mozzarella","cinderella", "salmonella"]
+del things[-1]
+print(things)
