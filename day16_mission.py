@@ -1,74 +1,43 @@
-import random
-import math
-
-class Node():
+class Node2():
     def __init__(self):
+        self.plink = None
         self.data = None
-        self.link = None
+        self.nlink = None
 
-def print_storages(start):
+def print_nodes(start):
     current = start
-    if current == None:
+    if current.nlink == None:
         return
-
-    while current.link != head:
-        current = current.link
-        x,y = current.data[1:]
-        print(current.data[0],'번 창고, 위치:', math.sqrt(x*x + y*y))
+    print("정방향 -- >", end = ' ')
+    print(current.data, end = ' ')
+    while current.nlink != None:
+        current = current.nlink
+        print(current.data, end = ' ')
     print()
+    print("역방향 -- >", end = ' ')
+    print(current.data, end = ' ')
+    while current.plink != None:
+        current = current.plink
+        print(current.data, end = ' ')
 
-def make_storage_list(storage):
-    global memory, head, current, pre
 
-    node = Node()
-    node.data = storage
+memory = []
+head, current, pre = None, None, None
+data_array = ["파이리", "꼬부기", "어니부기", "거북왕", "삐"]
+
+if __name__ == "__main__":
+
+    node = Node2()
+    node.data = data_array[0]
+    head = node
     memory.append(node)
 
-    if head == None:
-        head = node
-        node.link = head
-        return
-    node_x, node_y = node.data[1:]
-    node_dis = math.sqrt(node_x*node_x + node_y*node_y)
-    head_x, head_y = node.data[1:]
-    head_dis = math.sqrt(head_x*head_x + head_y*head_y)
+    for data in data_array[1:]:
+        pre = node
+        node = Node2()
+        node.data = data
+        pre.nlink = node
+        node.plink = pre
+        memory.append(node)
 
-    if head_dis > node_dis :
-        node.link = head
-        last = head
-        while last.link != head:
-            last= last.link
-        last.link = node
-        head = node
-        return
-
-    current = head
-    while current.link != head:
-        pre = current
-        current = current.link
-        curr_x, curr_y = current.data[1:]
-        curr_dis = math.sqrt(curr_x* curr_x + curr_y*curr_y)
-        if curr_dis > node_dis:
-            pre.link = node
-            node.link = current
-            return
-
-    current.link = node
-    node.link = head
-
-memory =[]
-head, current, pre = None, None, None
-
-if __name__== "__main__":
-
-    storage_Array =[]
-    storage_num = 1
-    for _ in range(10):
-        storage = (storage_num, random.randint(1,100),random.randint(1,100))
-        storage_Array.append(storage)
-        storage_num +=1
-
-    for storage in storage_Array:
-        make_storage_list(storage)
-
-    print_storages(head)
+    print_nodes(head)
