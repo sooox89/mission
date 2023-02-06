@@ -1,43 +1,57 @@
-class Node2():
-    def __init__(self):
-        self.plink = None
-        self.data = None
-        self.nlink = None
+import random
 
-def print_nodes(start):
-    current = start
-    if current.nlink == None:
+def is_stack_full():
+    global size, stack, top
+    if (top >= size-1):
+        return True
+    return False
+
+def is_stack_empty():
+    global size, stack, top
+    if (top == -1):
+        return True
+    return False
+
+def push(data):
+    global size, stack, top
+    if(is_stack_full()):
         return
-    print("정방향 -- >", end = ' ')
-    print(current.data, end = ' ')
-    while current.nlink != None:
-        current = current.nlink
-        print(current.data, end = ' ')
-    print()
-    print("역방향 -- >", end = ' ')
-    print(current.data, end = ' ')
-    while current.plink != None:
-        current = current.plink
-        print(current.data, end = ' ')
+    top +=1
+    stack[top] = data
 
+def pop():
+    global size, stack, top
+    if(is_stack_empty()):
+        return None
+    data = stack[top]
+    stack[top] = None
+    top -=1
+    return data
 
-memory = []
-head, current, pre = None, None, None
-data_array = ["파이리", "꼬부기", "어니부기", "거북왕", "삐"]
+def peek():
+    global size, stack, top
+    if(is_stack_empty()):
+        return None
+    return stack[top]
 
-if __name__ == "__main__":
+size = 10
+stack = [None for _ in range(size)]
+top = -1
 
-    node = Node2()
-    node.data = data_array[0]
-    head = node
-    memory.append(node)
+if __name__== "__main__":
+    where_arr = ["은행", "우체국", "편의점", "교직원 식당", "인하대학교"]
+    random.shuffle(where_arr)
 
-    for data in data_array[1:]:
-        pre = node
-        node = Node2()
-        node.data = data
-        pre.nlink = node
-        node.plink = pre
-        memory.append(node)
+    print("어니부기 집에 가는 길 ", end = ' ')
+    for where in where_arr:
+        push(where)
+        print(where, "-->", end = ' ')
+    print("어니부기 집")
 
-    print_nodes(head)
+    print("파이리 집에 가는 길 ", end = ' ')
+    while True:
+        where = pop()
+        if where == None:
+            break
+        print(where,"-->",end = ' ')
+    print("파이리 집")
