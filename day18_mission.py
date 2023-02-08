@@ -5,64 +5,98 @@ class Graph() :
 		self.graph = [[0 for _ in range(size)] for _ in range(size)]
 
 def printGraph(g) :
-	print('		 ', end = ' ')
+	print('	 ', end = ' ')
 	for v in range(g.SIZE) :
-		print("%9s" % name_array[v][0], end =' ')
+		print(nameAry[v], end = ' ')
 	print()
 	for row in range(g.SIZE) :
-		print("%9s" % name_array[row][0], end =' ')
+		print(nameAry[row], end = ' ')
 		for col in range(g.SIZE) :
-			print("%9d" % g.graph[row][col], end = ' ')
+			print("%3d" % g.graph[row][col], end = ' ')
 		print()
 	print()
 
+def findVertex(g, findVtx) :
+	stack = []
+	visitedAry = []	# 방문한 노드
+
+	current = 0	# 시작 정점
+	stack.append(current)
+	visitedAry.append(current)
+
+	while (len(stack) != 0) :
+		next = None
+		for vertex in range(gSize) :
+			if g.graph[current][vertex] != 0 :
+				if vertex in visitedAry :	# 방문한 적이 있는 정점이면 탈락
+					pass
+				else :			# 방문한 적이 없으면 다음 정점으로 지정
+					next = vertex
+					break
+
+		if next != None :				# 다음에 방문할 정점이 있는 경우
+			current = next
+			stack.append(current)
+			visitedAry.append(current)
+		else :					# 다음에 방문할 정점이 없는 경우
+			current = stack.pop()
+
+	if findVtx in visitedAry :
+		return True
+	else :
+		return False
+
+
 ## 전역 변수 선언 부분 ##
 G1 = None
-name_array = [["GS25", 30], ["CU", 60], ["Seven11", 10], ["Ministop", 90], ["Emart24", 40]]
-GS25,CU,Seven11,Ministop,Emart24 = 0, 1, 2, 3, 4
+nameAry = ["서울", "뉴욕", "런던", "북경", "방콕", "파리"]
+서울, 뉴욕, 런던, 북경, 방콕, 파리 = 0, 1, 2, 3, 4, 5
 
 
 ## 메인 코드 부분 ##
-gSize = 5
+gSize = 6
 G1 = Graph(gSize)
-G1.graph[GS25][CU]=1; G1.graph[GS25][Seven11]=1
-G1.graph[CU][GS25]=1; G1.graph[CU][Seven11]=1; G1.graph[CU][Ministop]=1
-G1.graph[Seven11][GS25]=1; G1.graph[Seven11][CU]=1; G1.graph[Seven11][Ministop]=1
-G1.graph[Ministop][CU]=1; G1.graph[Ministop][Seven11]=1; G1.graph[Ministop][Emart24]=1
-G1.graph[Emart24][Ministop]=1
-print('## 편의점 그래프 ##')
+G1.graph[서울][뉴욕]=80 ; G1.graph[서울][북경]=10
+G1.graph[뉴욕][서울]=80 ; G1.graph[뉴욕][방콕]=70; G1.graph[뉴욕][북경]=40
+G1.graph[런던][방콕]=30; G1.graph[런던][파리]=60
+G1.graph[북경][서울]=10; G1.graph[북경][뉴욕]=40; G1.graph[북경][방콕]=50
+G1.graph[방콕][뉴욕]=70; G1.graph[방콕][런던]=30; G1.graph[방콕][북경]=50; G1.graph[방콕][파리]=20
+G1.graph[파리][런던]=60; G1.graph[파리][방콕]=20;
+print('## 해저 케이블 연결을 위한 전체 연결도 ##')
 printGraph(G1)
 
+# 가중치 간선 목록
+edgeAry = []
+for i in range(gSize) :
+	for k in range(gSize) :
+		if G1.graph[i][k] != 0 :
+			edgeAry.append([G1.graph[i][k], i, k])
 
+from operator import itemgetter
+edgeAry = sorted(edgeAry, key = itemgetter(0), reverse = False)
 
+newAry = []
+for i in range(0,len(edgeAry), 2) :
+	newAry.append(edgeAry[i])
 
-stack = []
-visited_array = []	# 방문한 노드
+index = 0
+while (len(newAry) > gSize-1) :	# 간선의 개수가 '정점 개수-1'일 때까지 반복
+	start = newAry[index][1]
+	end = newAry[index][2]
+	saveCost = newAry[index][0]
 
-current = 0	# 시작 정점
-max_store = current
-max_honeychip = name_array[current][1]
-stack.append(current)
-visited_array.append(current)
+	G1.graph[start][end] = 0
+	G1.graph[end][start] = 0
 
-while (len(stack) != 0) :
-	next = None
-	for vertex in range(gSize) :
-		if G1.graph[current][vertex] != 0 :
-			if vertex in visited_array :	# 방문한 적이 있는 정점이면 탈락
-				pass
-			else :			# 방문한 적이 없으면 다음 정점으로 지정
-				next = vertex
-				break
+	startYN = findVertex(G1, start)
+	endYN = findVertex(G1, end)
 
-	if next != None :				# 다음에 방문할 정점이 있는 경우
-		current = next
-		stack.append(current)
-		visited_array.append(current)
-		if name_array[current][1]> max_honeychip :
-			max_honeychip =name_array[current][1]
-			max_store =current
-	else :					# 다음에 방문할 정점이 없는 경우
-		current = stack.pop()
+	if startYN and endYN :
+		del (newAry[index])
+	else :
+		G1.graph[start][end] = saveCost
+		G1.graph[end][start] = saveCost
+		index += 1
 
-print("허니버터칩 최대 보유 편의점 : ", name_array[max_store][0], "/ 개수: ", name_array[max_store][1])
+print('## 가장 효율적인 해저 케이블 연결도 ##')
+printGraph(G1)
