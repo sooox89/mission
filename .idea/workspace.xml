@@ -7,14 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfcd5a65-9ec5-4dad-b63d-a72c83fc6d6d" name="Changes" comment="day 16 mission CH 6 응용예제 1번">
-      <change afterPath="$PROJECT_DIR$/day15_mission.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day17_mission.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mission.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mission.iml" afterDir="false" />
+    <list default="true" id="dfcd5a65-9ec5-4dad-b63d-a72c83fc6d6d" name="Changes" comment="day 18 mission CH9 그래프 응용예제 02">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day07 mission.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/day16_mission.py" beforeDir="false" afterPath="$PROJECT_DIR$/day16_mission.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +90,35 @@
       <option name="project" value="LOCAL" />
       <updated>1675697724891</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="day 17 mission ch7 큐 응용예제 01">
+      <created>1675758863573</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1675758863573</updated>
+    </task>
+    <task id="LOCAL-00005" summary="day 17 mission ch7 큐 응용예제 02">
+      <created>1675769831696</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1675769831696</updated>
+    </task>
+    <task id="LOCAL-00006" summary="day 18 mission CH9 그래프 응용예제 01">
+      <created>1675848450014</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675848450014</updated>
+    </task>
+    <task id="LOCAL-00007" summary="day 18 mission CH9 그래프 응용예제 02">
+      <created>1675862121563</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675862121563</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -114,6 +136,10 @@
     <MESSAGE value="day 16 mission CH 5 응용예제 1번" />
     <MESSAGE value="day 16 mission CH 5 응용예제 2번" />
     <MESSAGE value="day 16 mission CH 6 응용예제 1번" />
-    <option name="LAST_COMMIT_MESSAGE" value="day 16 mission CH 6 응용예제 1번" />
+    <MESSAGE value="day 17 mission ch7 큐 응용예제 01" />
+    <MESSAGE value="day 17 mission ch7 큐 응용예제 02" />
+    <MESSAGE value="day 18 mission CH9 그래프 응용예제 01" />
+    <MESSAGE value="day 18 mission CH9 그래프 응용예제 02" />
+    <option name="LAST_COMMIT_MESSAGE" value="day 18 mission CH9 그래프 응용예제 02" />
   </component>
 </project>
